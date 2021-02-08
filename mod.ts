@@ -1,7 +1,8 @@
 export class TimeoutError extends Error {
-    readonly name: 'TimeoutError'
+    readonly name: string
     constructor(message?: string) {
         super(message)
+        this.name = "TimeoutError"
     }
 }
 
@@ -34,11 +35,15 @@ Timeout a promise after a specified amount of time.
 
 @example
 ```
-import pTimeout from 'https://deno.land/x/p_timeout/mod.ts
+import pTimeout from './mod.ts'
 
-const delayedPromise = new Promise(r => setTimeout(r, 500))
+const delayedPromise = new Promise(resolve => setTimeout(resolve, 500))
 
-pTimeout(delayedPromise, 50).then(() => 'foo')
+await pTimeout({
+    promise: delayedPromise,
+    milliseconds: 50
+})
+
 //=> [TimeoutError: Promise timed out after 50 milliseconds]
 ```
 */
@@ -51,7 +56,7 @@ export default function pTimeout<T>(options: {
     customTimers?: customTimerOptions
 }) {
     let { promise, milliseconds, fallbackFn, failMessage, failError, customTimers } = options
-    let timer: number
+    let timer: number | undefined
     const cancelablePromise = new Promise((resolve, reject) => {
         if (milliseconds < 0) {
             throw new TypeError('Expected `milliseconds` to be a positive number')
@@ -61,10 +66,13 @@ export default function pTimeout<T>(options: {
             resolve(promise)
             return
         }
+        
+        const timers = {
+            ...{ setTimeout, clearTimeout },
+            ...customTimers
+        }
 
-        if (!customTimers) customTimers = { setTimeout, clearTimeout }
-
-        timer = customTimers.setTimeout.call(undefined, () => {
+        timer = timers.setTimeout.call(undefined, () => {
             if (fallbackFn) {
                 try {
                     resolve(fallbackFn())
@@ -87,7 +95,7 @@ export default function pTimeout<T>(options: {
             } catch (error) {
                 reject(error)
             } finally {
-                customTimers.clearTimeout.call(undefined, timer)
+                timers.clearTimeout.call(undefined, timer)
             }
         }
 

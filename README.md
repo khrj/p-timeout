@@ -5,17 +5,21 @@
 ## Usage
 
 ```js
-import pTimeout from 'https://deno.land/x/p_timeout@1.0.0/mod.ts
+import pTimeout from 'https://deno.land/x/p_timeout@1.0.1/mod.ts'
 
 const delayedPromise = new Promise(resolve => setTimeout(resolve, 500))
 
-pTimeout(delayedPromise, 50).then(() => 'foo')
+await pTimeout({
+    promise: delayedPromise,
+    milliseconds: 50   
+})
+
 //=> [TimeoutError: Promise timed out after 50 milliseconds]
 ```
 
 ## API
 
-See https://doc.deno.land/https/deno.land/x/p_timeout@1.0.0/mod.ts
+See https://doc.deno.land/https/deno.land/x/p_timeout@1.0.1/mod.ts
 
 ## License/Credits
 - P(romise) Timeout is licensed under the MIT license. 
