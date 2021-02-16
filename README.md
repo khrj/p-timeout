@@ -23,7 +23,7 @@
 ## Usage
 
 ```js
-import pTimeout from "https://deno.land/x/p_timeout@1.0.1/mod.ts"
+import pTimeout from "https://deno.land/x/p_timeout@1.0.2/mod.ts"
 
 const delayedPromise = new Promise(resolve => setTimeout(resolve, 500))
 
@@ -37,7 +37,7 @@ await pTimeout({
 
 ## API
 
-See https://doc.deno.land/https/deno.land/x/p_timeout@1.0.1/mod.ts
+See https://doc.deno.land/https/deno.land/x/p_timeout@1.0.2/mod.ts
 
 ## Supporters
 
