@@ -48,28 +48,28 @@ await pTimeout({
 ```
 */
 export default function pTimeout<T>(options: {
-    promise: Promise<T>,
-    milliseconds: number,
-    fallbackFn?: () => Promise<T>,
-    failMessage?: string,
-    failError?: Error,
+    promise: Promise<T>
+    milliseconds: number
+    fallbackFn?: () => Promise<T>
+    failMessage?: string
+    failError?: Error
     customTimers?: customTimerOptions
 }) {
-    let { promise, milliseconds, fallbackFn, failMessage, failError, customTimers } = options
+    const { promise, milliseconds, fallbackFn, failMessage, failError, customTimers } = options
     let timer: number | undefined
     const cancelablePromise = new Promise((resolve, reject) => {
         if (milliseconds < 0) {
-            throw new TypeError('Expected `milliseconds` to be a positive number')
+            throw new TypeError("Expected `milliseconds` to be a positive number")
         }
 
         if (milliseconds === Infinity) {
             resolve(promise)
             return
         }
-        
+
         const timers = {
             ...{ setTimeout, clearTimeout },
-            ...customTimers
+            ...customTimers,
         }
 
         timer = timers.setTimeout.call(undefined, () => {
