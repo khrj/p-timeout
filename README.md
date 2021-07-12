@@ -5,12 +5,12 @@
         <b>Timeout a promise after a specified amount of time. Deno port of <a href="https://github.com/sindresorhus/p-timeout">sindresorhus's p-timeout for node</a></b>
     </p>
     <p>
-        <img alt="build status" src="https://img.shields.io/github/workflow/status/KhushrajRathod/pTimeout/Deno?label=checks" >
-        <img alt="language" src="https://img.shields.io/github/languages/top/KhushrajRathod/pTimeout" >
-        <img alt="code size" src="https://img.shields.io/github/languages/code-size/KhushrajRathod/pTimeout">
-        <img alt="issues" src="https://img.shields.io/github/issues/KhushrajRathod/pTimeout" >
-        <img alt="license" src="https://img.shields.io/github/license/KhushrajRathod/pTimeout">
-        <img alt="version" src="https://img.shields.io/github/v/release/KhushrajRathod/pTimeout">
+        <img alt="build status" src="https://img.shields.io/github/workflow/status/khrj/p-timeout/Deno?label=checks" >
+        <img alt="language" src="https://img.shields.io/github/languages/top/khrj/p-timeout" >
+        <img alt="code size" src="https://img.shields.io/github/languages/code-size/khrj/p-timeout">
+        <img alt="issues" src="https://img.shields.io/github/issues/khrj/p-timeout" >
+        <img alt="license" src="https://img.shields.io/github/license/khrj/p-timeout">
+        <img alt="version" src="https://img.shields.io/github/v/release/khrj/p-timeout">
     </p>
     <p>
         <b><a href="https://deno.land/x/p_timeout">View on deno.land</a></b>
@@ -43,16 +43,16 @@ See https://doc.deno.land/https/deno.land/x/p_timeout@1.0.2/mod.ts
 
 - HUGE thanks to @sindresorhus -- this repository is mostly his code, modified to work with Deno
 
-[![Stargazers repo roster for @KhushrajRathod/pTimeout](https://reporoster.com/stars/KhushrajRathod/pTimeout)](https://github.com/KhushrajRathod/pTimeout/stargazers)
+[![Stargazers repo roster for @khrj/p-timeout](https://reporoster.com/stars/khrj/p-timeout)](https://github.com/khrj/p-timeout/stargazers)
 
-[![Forkers repo roster for @KhushrajRathod/pTimeout](https://reporoster.com/forks/KhushrajRathod/pTimeout)](https://github.com/KhushrajRathod/pTimeout/network/members)
+[![Forkers repo roster for @khrj/p-timeout](https://reporoster.com/forks/khrj/p-timeout)](https://github.com/khrj/p-timeout/network/members)
 
 ## Related
 
-- [pQueue](https://github.com/KhushrajRathod/pQueue)
-- [pRetried](https://github.com/KhushrajRathod/pRetried)
-- [retried](https://github.com/KhushrajRathod/retried)
-- [...more](https://github.com/KhushrajRathod/denoModules)
+- [p-queue](https://github.com/khrj/p-queue)
+- [p-retried](https://github.com/khrj/p-retried)
+- [retried](https://github.com/khrj/retried)
+- [...more](https://github.com/khrj/deno-modules)
 
 ## License
 
