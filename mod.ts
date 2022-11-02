@@ -29,7 +29,7 @@ Timeout a promise after a specified amount of time.
 @param options.milliseconds - Milliseconds before timing out.
 @param options.fallbackFn - Do something other than rejecting with an error on timeout. You could for example retry.
 @param options.failMessage - Specify a custom error message. Default: `'Promise timed out after 50 milliseconds'`.
-@param options.failError - Specifgy a custom `Error`. It's recommended to sub-class `pTimeout.TimeoutError`.
+@param options.failError - Specify a custom `Error`. It's recommended to sub-class `pTimeout.TimeoutError`.
 @param options.customTimers - Specify custom implementations for the `setTimeout` and `clearTimeout` functions.
 @returns A decorated `options.promise` that times out after `options.milliseconds` time. It has a `.clear()` method that clears the timeout.
 
@@ -103,7 +103,7 @@ export default function pTimeout<T>(options: {
     }) as ClearablePromise<T>
 
     cancelablePromise.clear = () => {
-        clearTimeout(timer)
+        timers.clearTimeout(timer)
         timer = undefined
     }
 
